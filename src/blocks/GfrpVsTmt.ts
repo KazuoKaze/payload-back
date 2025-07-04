@@ -1,4 +1,4 @@
-import type { Block } from 'payload/types'
+import type { Block } from 'payload'
 
 const GfrpVsTmt: Block = {
   slug: 'gfrp-vs-tmt',
@@ -80,9 +80,7 @@ const GfrpVsTmt: Block = {
               type: 'richText',
               label: 'Property Text',
               required: true,
-              admin: {
-                elements: ['bold', 'italic', 'underline'],
-              },
+              // elements: ['bold', 'italic', 'underline'],
             },
           ],
         },

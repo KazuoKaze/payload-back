@@ -70,7 +70,7 @@
 
 
 
-import type { CollectionConfig } from 'payload/types'
+import type { CollectionConfig } from 'payload'
 import Hero from '../blocks/Hero'
 import Marquee from '../blocks/Marquee'
 import About from '../blocks/About'

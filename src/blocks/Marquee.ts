@@ -1,5 +1,5 @@
 // src/blocks/Marquee.ts
-import type { Block } from 'payload/types' // ✅ Not CollectionConfig
+import type { Block } from 'payload' // ✅ Not CollectionConfig
 
 const Marquee: Block = {
   slug: 'marquee',

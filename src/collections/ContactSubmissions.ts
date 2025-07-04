@@ -25,7 +25,7 @@
 
 
 // src/collections/ContactSubmissions.ts
-import { CollectionConfig } from 'payload/types'
+import { CollectionConfig } from 'payload'
 
 const ContactSubmissions: CollectionConfig = {
   slug: 'contact-submissions',

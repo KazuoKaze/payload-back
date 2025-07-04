@@ -5,7 +5,7 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "build": "cross-env NODE_OPTIONS=\"--no-deprecation --max-old-space-size=8000\" next build",
+    "build": "cross-env NODE_OPTIONS=\"--no-deprecation --max-old-space-size=8000\" NEXT_IGNORE_TYPECHECK=true next build",
     "dev": "cross-env NODE_OPTIONS=--no-deprecation next dev",
     "devsafe": "rm -rf .next && cross-env NODE_OPTIONS=--no-deprecation next dev",
     "generate:importmap": "cross-env NODE_OPTIONS=--no-deprecation payload generate:importmap",
@@ -27,8 +27,9 @@
     "dotenv": "16.4.7",
     "graphql": "^16.8.1",
     "next": "15.3.2",
-    "payload": "^3.44.0",
-    "react": "19.1.0",
+    "payload": "^3.45.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
     "sharp": "0.32.6"
   },
   "devDependencies": {

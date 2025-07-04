@@ -77,7 +77,7 @@
 
 
 // src/globals/ContactPage.ts
-import { GlobalConfig } from 'payload/types' // ✅ Changed from CollectionConfig
+import { GlobalConfig } from 'payload' // ✅ Changed from CollectionConfig
 
 const ContactPage: GlobalConfig = { // ✅ Changed from CollectionConfig
   slug: 'contact-page',

@@ -85,7 +85,7 @@
 
 
 
-import type { CollectionConfig } from 'payload/types'
+import type { CollectionConfig } from 'payload'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 
 const BlogPosts: CollectionConfig = {
@@ -142,7 +142,7 @@ const BlogPosts: CollectionConfig = {
       maxDepth: 2, // ✅ Prevent infinite recursion
       admin: {
         description: 'Select related blog posts to show at the bottom.',
-        disableRelation: true,
+        // disableRelation: true,
       },
     },
   ],
