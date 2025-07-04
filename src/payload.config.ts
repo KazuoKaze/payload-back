@@ -73,7 +73,7 @@ const dirname = path.dirname(filename)
 
 export default buildConfig({
   serverURL: 'https://payload-backs.vercel.app',
-  cors: ['http://localhost:3001'],
+  cors: ['http://localhost:3001', 'https://rebar-x.vercel.app'],
   admin: {
     user: Users.slug,
     importMap: {
