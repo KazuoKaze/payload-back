@@ -72,7 +72,7 @@ const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
 export default buildConfig({
-  serverURL: 'http://localhost:3000',
+  serverURL: 'https://payload-backs.vercel.app',
   cors: ['http://localhost:3001'],
   admin: {
     user: Users.slug,
@@ -81,13 +81,13 @@ export default buildConfig({
     },
   },
   collections: [
-    Navbar, 
-    Pages, 
-    Users, 
-    Media, 
-    BlogPosts, 
+    Navbar,
+    Pages,
+    Users,
+    Media,
+    BlogPosts,
     ContactSubmissions, // ✅ Keep as collection
-    Footer
+    Footer,
   ],
   globals: [
     ContactPage, // ✅ Move to globals array
@@ -101,7 +101,5 @@ export default buildConfig({
     url: process.env.DATABASE_URI || '',
   }),
   sharp,
-  plugins: [
-    payloadCloudPlugin(),
-  ],
+  plugins: [payloadCloudPlugin()],
 })
