@@ -48,8 +48,7 @@ export const Media: CollectionConfig = {
   upload: {
     staticDir: 'media',
     adminThumbnail: ({ doc }) => {
-      // Always use Cloudinary URL for admin thumbnails
-      return doc.cloudinaryUrl || `${process.env.PAYLOAD_PUBLIC_SERVER_URL}/media/${doc.filename}`
+      return (doc as any).cloudinaryUrl || `${process.env.PAYLOAD_PUBLIC_SERVER_URL}/media/${(doc as any).filename}` || null
     },
     imageSizes: [
       {
@@ -71,7 +70,7 @@ export const Media: CollectionConfig = {
         position: 'centre',
       },
     ],
-    adminThumbnail: 'thumbnail',
+    // adminThumbnail: 'thumbnail',
     mimeTypes: ['image/*'],
   },
   hooks: {
