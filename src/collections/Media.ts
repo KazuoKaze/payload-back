@@ -47,6 +47,10 @@ export const Media: CollectionConfig = {
   ],
   upload: {
     staticDir: 'media',
+    adminThumbnail: ({ doc }) => {
+      // Always use Cloudinary URL for admin thumbnails
+      return doc.cloudinaryUrl || `${process.env.PAYLOAD_PUBLIC_SERVER_URL}/media/${doc.filename}`
+    },
     imageSizes: [
       {
         name: 'thumbnail',
@@ -76,18 +80,18 @@ export const Media: CollectionConfig = {
         if (operation === 'create' && doc.filename) {
           try {
             console.log('🔄 Processing upload for:', doc.filename)
-            
+
             // Get the file from the request
             // const file = req.files?.file || req.file
 
             const file = (req as any).files?.file || req.file
-            
+
             if (file && file.data) {
               console.log('📁 File data found, uploading to Cloudinary...')
-              
+
               // Upload to Cloudinary
               const result = await uploadToCloudinary(file.data, doc.filename)
-              
+
               // Update the document with Cloudinary URL
               await req.payload.update({
                 collection: 'media',
@@ -97,7 +101,7 @@ export const Media: CollectionConfig = {
                 },
                 req, // Pass the request object
               })
-              
+
               console.log('✅ Document updated with Cloudinary URL')
             } else {
               console.log('⚠️ No file data found in request')
