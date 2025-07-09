@@ -138,15 +138,17 @@ import Footer from './collections/Footer'
 import ContactSubmissions from './collections/ContactSubmissions'
 import ContactPage from './collections/ContactPage'
 
+import SEO from './collections/SEO'
+
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
 export default buildConfig({
   serverURL: process.env.PAYLOAD_PUBLIC_SERVER_URL || 'http://localhost:3000',
   cors: [
-    'http://localhost:3001', 
+    'http://localhost:3001',
     'https://rebar-x.vercel.app',
-    process.env.PAYLOAD_PUBLIC_SERVER_URL || 'https://your-app.onrender.com'
+    process.env.PAYLOAD_PUBLIC_SERVER_URL || 'https://your-app.onrender.com',
   ],
   admin: {
     user: Users.slug,
@@ -163,9 +165,7 @@ export default buildConfig({
     ContactSubmissions,
     Footer,
   ],
-  globals: [
-    ContactPage,
-  ],
+  globals: [ContactPage, SEO],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
@@ -175,7 +175,5 @@ export default buildConfig({
     url: process.env.DATABASE_URI || '',
   }),
   sharp,
-  plugins: [
-    payloadCloudPlugin(),
-  ],
+  plugins: [payloadCloudPlugin()],
 })

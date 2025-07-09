@@ -96,9 +96,11 @@ export interface Config {
   };
   globals: {
     'contact-page': ContactPage;
+    seo: Seo;
   };
   globalsSelect: {
     'contact-page': ContactPageSelect<false> | ContactPageSelect<true>;
+    seo: SeoSelect<false> | SeoSelect<true>;
   };
   locale: null;
   user: User & {
@@ -1038,6 +1040,62 @@ export interface ContactPage {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "seo".
+ */
+export interface Seo {
+  id: string;
+  siteTitle?: string | null;
+  siteTagline?: string | null;
+  metaDescription?: string | null;
+  canonicalURL?: string | null;
+  siteLanguage?: string | null;
+  favicon?: (string | null) | Media;
+  appIcons?: (string | Media)[] | null;
+  ogTitle?: string | null;
+  ogDescription?: string | null;
+  ogImage?: (string | null) | Media;
+  twitterHandle?: string | null;
+  twitterCardType?: ('summary' | 'summary_large_image') | null;
+  organizationName?: string | null;
+  organizationLogo?: (string | null) | Media;
+  businessType?: string | null;
+  sitemapUrl?: string | null;
+  /**
+   * Optional override for /robots.txt
+   */
+  robotsTxt?: string | null;
+  /**
+   * Paste JSON-LD schema (optional).
+   */
+  structuredData?: string | null;
+  googleSiteVerification?: string | null;
+  bingSiteVerification?: string | null;
+  pinterestVerification?: string | null;
+  yandexVerification?: string | null;
+  googleAnalyticsId?: string | null;
+  googleTagManagerId?: string | null;
+  facebookPixelId?: string | null;
+  hotjarId?: string | null;
+  /**
+   * Custom scripts to include in <head>
+   */
+  customHeadScripts?: string | null;
+  /**
+   * Custom scripts before </body>
+   */
+  customBodyScripts?: string | null;
+  socialLinks?:
+    | {
+        platform?: string | null;
+        url?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "contact-page_select".
  */
 export interface ContactPageSelect<T extends boolean = true> {
@@ -1054,6 +1112,50 @@ export interface ContactPageSelect<T extends boolean = true> {
         name?: T;
         type?: T;
         required?: T;
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "seo_select".
+ */
+export interface SeoSelect<T extends boolean = true> {
+  siteTitle?: T;
+  siteTagline?: T;
+  metaDescription?: T;
+  canonicalURL?: T;
+  siteLanguage?: T;
+  favicon?: T;
+  appIcons?: T;
+  ogTitle?: T;
+  ogDescription?: T;
+  ogImage?: T;
+  twitterHandle?: T;
+  twitterCardType?: T;
+  organizationName?: T;
+  organizationLogo?: T;
+  businessType?: T;
+  sitemapUrl?: T;
+  robotsTxt?: T;
+  structuredData?: T;
+  googleSiteVerification?: T;
+  bingSiteVerification?: T;
+  pinterestVerification?: T;
+  yandexVerification?: T;
+  googleAnalyticsId?: T;
+  googleTagManagerId?: T;
+  facebookPixelId?: T;
+  hotjarId?: T;
+  customHeadScripts?: T;
+  customBodyScripts?: T;
+  socialLinks?:
+    | T
+    | {
+        platform?: T;
+        url?: T;
         id?: T;
       };
   updatedAt?: T;
