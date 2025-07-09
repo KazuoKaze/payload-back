@@ -145,6 +145,58 @@ const BlogPosts: CollectionConfig = {
         // disableRelation: true,
       },
     },
+
+
+
+    {
+      type: 'group',
+      name: 'seo',
+      label: 'SEO Settings',
+      fields: [
+        {
+          name: 'metaTitle',
+          type: 'text',
+          label: 'Meta Title',
+        },
+        {
+          name: 'metaDescription',
+          type: 'textarea',
+          label: 'Meta Description',
+        },
+        {
+          name: 'ogTitle',
+          type: 'text',
+          label: 'Open Graph Title',
+        },
+        {
+          name: 'ogDescription',
+          type: 'textarea',
+          label: 'Open Graph Description',
+        },
+        {
+          name: 'ogImage',
+          type: 'upload',
+          relationTo: 'media',
+          label: 'Open Graph Image',
+        },
+        {
+          name: 'twitterTitle',
+          type: 'text',
+          label: 'Twitter Title',
+        },
+        {
+          name: 'twitterDescription',
+          type: 'textarea',
+          label: 'Twitter Description',
+        },
+        {
+          name: 'twitterImage',
+          type: 'upload',
+          relationTo: 'media',
+          label: 'Twitter Image',
+        },
+      ],
+    }
   ],
 }
 
