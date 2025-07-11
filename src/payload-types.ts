@@ -325,6 +325,8 @@ export interface Page {
                   logo: string | Media;
                   title: string;
                   bio: string;
+                  image: string | Media;
+                  bgColor?: string | null;
                   id?: string | null;
                 }[]
               | null;
@@ -442,6 +444,16 @@ export interface BlogPost {
    * Select related blog posts to show at the bottom.
    */
   relatedBlogs?: (string | BlogPost)[] | null;
+  seo?: {
+    metaTitle?: string | null;
+    metaDescription?: string | null;
+    ogTitle?: string | null;
+    ogDescription?: string | null;
+    ogImage?: (string | null) | Media;
+    twitterTitle?: string | null;
+    twitterDescription?: string | null;
+    twitterImage?: (string | null) | Media;
+  };
   updatedAt: string;
   createdAt: string;
 }
@@ -758,6 +770,8 @@ export interface PagesSelect<T extends boolean = true> {
                     logo?: T;
                     title?: T;
                     bio?: T;
+                    image?: T;
+                    bgColor?: T;
                     id?: T;
                   };
               id?: T;
@@ -927,6 +941,18 @@ export interface BlogPostsSelect<T extends boolean = true> {
   mainImage?: T;
   content?: T;
   relatedBlogs?: T;
+  seo?:
+    | T
+    | {
+        metaTitle?: T;
+        metaDescription?: T;
+        ogTitle?: T;
+        ogDescription?: T;
+        ogImage?: T;
+        twitterTitle?: T;
+        twitterDescription?: T;
+        twitterImage?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
 }

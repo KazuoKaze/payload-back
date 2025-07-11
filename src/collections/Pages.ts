@@ -86,6 +86,8 @@ import { CTASection } from '@/blocks/CTASection'
 
 import GfrpVsTmt from '@/blocks/GfrpVsTmt'
 
+import CalculatorBlock from '@/blocks/Calculator'
+
 const Pages: CollectionConfig = {
   slug: 'pages',
   admin: {
@@ -116,6 +118,7 @@ const Pages: CollectionConfig = {
         GfrpVsTmt,
         ProductSection,
         VisionSection,
+        CalculatorBlock,
         BlogSection,
         ScienceBlock,
         FAQBlock,
