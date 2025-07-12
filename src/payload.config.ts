@@ -148,6 +148,8 @@ export default buildConfig({
   cors: [
     'http://localhost:3001',
     'https://rebar-x.vercel.app',
+    'https://www.rebarx.in',
+    'https://rebarx.in',
     process.env.PAYLOAD_PUBLIC_SERVER_URL || 'https://your-app.onrender.com',
   ],
   admin: {
